@@ -6,19 +6,19 @@ import React, { useState, useEffect } from 'react';
 //let arr2 = [{vastaus: "ei", booleanArvoVastaukselle: false, komponentinId: 4},{vastaus: "kyllä", booleanArvoVastaukselle: false, komponentinId: 5},{vastaus: "ehkä", booleanArvoVastaukselle: false, komponentinId: 6}]
 
 
-const Komponentti = ({ vastausVaihtoehdot })  => {
+const Alikomponentti = ({ vastausVaihtoehdot })  => {
 
 console.log("vastausVaihtoehdot:", vastausVaihtoehdot)
     return (
   <>
     {vastausVaihtoehdot.map((vaihtoehto) => (
             <> 
-            {console.log("vaihtoehto",vaihtoehto)}
-            <input type="checkbox"/> <p>{vaihtoehto.vastaus}</p> 
+            {console.log("vaihtoehto",vaihtoehto)}<div class="answerlines"><div class="answerline">
+            <input type="checkbox"/>    {vaihtoehto.vastaus}</div></div> 
             </>
             ))}
   </>
   );
 }
 
-export default Komponentti;
+export default Alikomponentti;

@@ -8,17 +8,17 @@ import Alikomponentti from './Alikomponentti'
 //let listaPääkysymyksiä2 = [{pääkysymys: "Onko React kivaa?", id: 1, vastausVaihtoehdot:arr2}]
 
 const Komponentti = ({ pääkysymys })  => {
-
   return (
-    <Box>
+
+    <Box class="container"><div class="box shadow">
         {pääkysymys.map((listaPääkysymyksiä) => (
-            <Grid> 
+            <Grid class="textbox"> 
                 <h1>{listaPääkysymyksiä.pääkysymys}</h1>
-                {console.log("listaPääkysymyksiä",listaPääkysymyksiä)}
+                {console.log("listaPääkysymyksiä",listaPääkysymyksiä)}<br></br>
                     <Alikomponentti vastausVaihtoehdot={listaPääkysymyksiä.vastausVaihtoehdot}/> 
             </Grid>
             ))}
-    </Box>
+       </div>     </Box>
   );
 }
 
