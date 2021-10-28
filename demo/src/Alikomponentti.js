@@ -10,12 +10,17 @@ import React, { useState, useEffect } from 'react';
 
 const Alikomponentti = ({ vastausVaihtoehdot, listaKysymyksiä, setPääkysymykset })  => {
   const [vaihtoehdot, setVaihtoehdot] = useState(vastausVaihtoehdot)
+  const [vastaukset, setVastaukset] = useState([])
 
 console.log("vastausVaihtoehdot:", vastausVaihtoehdot)
 
 const save = (id) => {
   console.log("tämä kuuluu pääkysymys listalle: ", listaKysymyksiä[0].id)
   console.log("vastausvaihtoehdon id: ",id)
+  //hae id avulla pääkysymys ja sen vastausvaihtoehto
+  //!tila
+  let checkBox = document.getElementById(id);
+  console.log("checked",checkBox.checked)
 
 }
 
@@ -26,7 +31,7 @@ const save = (id) => {
           {console.log("vaihtoehto",vaihtoehto)}
             <div class="answerlines">
               <div class="answerline">
-                <input type="checkbox" onClick={() => save(vaihtoehto.komponentinId)}/> {vaihtoehto.vastaus}
+                <input type="checkbox" id={vaihtoehto.komponentinId} onClick={() => save(vaihtoehto.komponentinId)}/> {vaihtoehto.vastaus}
               </div>
             </div> 
         </>
