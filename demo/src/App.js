@@ -9,15 +9,24 @@ let arr2 = [{vastaus: "ei", booleanArvoVastaukselle: false, komponentinId: 4},{v
 let arr3 = [{vastaus: "no jaa", booleanArvoVastaukselle: false, komponentinId: 8},{vastaus: "kysytkin vielä!", booleanArvoVastaukselle: false, komponentinId: 9},{vastaus: "kyllä ne tästä...", booleanArvoVastaukselle: false, komponentinId: 10}]
 let arr4 = [{vastaus: "johan nyt toki", booleanArvoVastaukselle: false, komponentinId: 11},{vastaus: "mitä?!", booleanArvoVastaukselle: false, komponentinId: 12},{vastaus: "AAAArrrrggh!!!!", booleanArvoVastaukselle: false, komponentinId: 13}]
 
-let listaPääkysymyksiä1 = [{pääkysymys: "Onko JavaScript kivaa?", id: 1, vastausVaihtoehdot:arr1}]
-let listaPääkysymyksiä2 = [{pääkysymys: "Onko React kivaa?", id: 2, vastausVaihtoehdot:arr2}]
-let listaPääkysymyksiä3 = [{pääkysymys: "Onko Reactin hookit vaikeita?", id: 3, vastausVaihtoehdot:arr3}]
-let listaPääkysymyksiä4 = [{pääkysymys: "Joko alkaa päässä sirittää?", id: 4, vastausVaihtoehdot:arr4}]
+let listaPääkysymyksiä1 = [{pääkysymys: "Onko JavaScript kivaa?", oikeaVastaus: 1, id: 1, vastausVaihtoehdot:arr1}]
+let listaPääkysymyksiä2 = [{pääkysymys: "Onko React kivaa?", oikeaVastaus: 2, id: 2, vastausVaihtoehdot:arr2}]
+let listaPääkysymyksiä3 = [{pääkysymys: "Onko Reactin hookit vaikeita?", oikeaVastaus: 3, id: 3, vastausVaihtoehdot:arr3}]
+let listaPääkysymyksiä4 = [{pääkysymys: "Joko alkaa päässä sirittää?", oikeaVastaus: 4, id: 4, vastausVaihtoehdot:arr4}]
 
 let kaikki = [listaPääkysymyksiä1,listaPääkysymyksiä2,listaPääkysymyksiä3, listaPääkysymyksiä4]
 
 function App() {
-  const [pääkysymykset, setPääkysymykset] = useState(kaikki)
+  const [pääkysymykset, setPääkysymykset] = useState(() => {
+    let avain = "localStorageAvain"
+    let localStorageData = localStorage.getItem(avain) //hae arvottu numero
+    let bool = false
+    if (localStorageData.length > 1) {
+      bool = true
+    }
+    //jos boolean arvo on true: palauta localStorageData muuten kaikki
+    return bool ? localStorageData : kaikki
+  });
 
   console.log(kaikki)
   return (    
