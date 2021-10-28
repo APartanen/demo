@@ -20,28 +20,29 @@ let kaikki = [listaPääkysymyksiä1,listaPääkysymyksiä2,listaPääkysymyksi�
 function App() {
   const [pääkysymykset, setPääkysymykset] = useState(() => {
     let avain = "localStorageAvain"
-    let localStorageData = localStorage.getItem(avain) //hae arvottu numero
+    let data = localStorage.getItem(avain)
+    data = JSON.parse(data)
+    console.log(data,"data")
     let bool = false
-    if (localStorageData === null) {
+    if (data === null) {
       bool = true
     }
-    //jos bool on true, palauta localStorageData jos false palauta kaikki
-    return bool ? kaikki : localStorageData
+    console.log("AAAAAAAAAAAAAA",bool,kaikki,data)
+    return bool ? kaikki : data
   });
 
+  console.log("render")
   
   useEffect(() => {    
-  console.log("aaaa",pääkysymykset)
   let avain = "localStorageAvain"
   localStorage.setItem(avain, JSON.stringify(pääkysymykset))
+  console.log("useEffect")
   },[pääkysymykset]); //makes the effect run if changed
 
-  console.log("kaikki",kaikki)
   return (    
     <Container> 
       {pääkysymykset.map((setti) => (
         <> 
-        {console.log("setti",setti)}
         <Komponentti pääkysymys={setti} setPääkysymykset={setPääkysymykset} pääkysymykset={pääkysymykset}/>
         </>
       ))}

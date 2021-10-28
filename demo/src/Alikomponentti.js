@@ -12,24 +12,13 @@ const Alikomponentti = ({ vastausVaihtoehdot, listaKysymyksiä, setPääkysymyks
   const [vaihtoehdot, setVaihtoehdot] = useState(vastausVaihtoehdot)
   const [vastaukset, setVastaukset] = useState([])
 
-console.log("pääkysymykset alikomp:", pääkysymykset)
 
 const save = (id) => {
-  console.log("pääkysymykset:",pääkysymykset)
-  //vastausVaihtoehdot 0 on aina listan vastausVaihtoehdot ensimmäinen elementti
-  let checkBox = document.getElementById(id);
-  //console.log("checkBox id",checkBox.id)
-  let idCounter = pääkysymykset[listaKysymyksiä[0].id][0].vastausVaihtoehdot[1].komponentinId
-
-    //pitää osoittaa monesko elementti se on listalla numeroilla 0,1,2
-  //console.log("pääkysymykset pääasia:",pääkysymykset[listaKysymyksiä[0].id][0].vastausVaihtoehdot, "listan alku id: ", idCounter, id)
   let array = pääkysymykset[listaKysymyksiä[0].id][0].vastausVaihtoehdot
   array.forEach(element => {
-    //console.log("element",element)
     if (element.komponentinId === id) {
       element.booleanArvoVastaukselle = !element.booleanArvoVastaukselle 
     }
-  //console.log(array)
   pääkysymykset[listaKysymyksiä[0].id][0].vastausVaihtoehdot = array
   setPääkysymykset(pääkysymykset.concat())
 
@@ -39,16 +28,24 @@ const save = (id) => {
 
     return (
       <>
-        {vaihtoehdot.map((vaihtoehto) => (
-        <> 
-          {console.log("vaihtoehto",vaihtoehto)}
+        {vaihtoehdot.map((vaihtoehto) => {
+          return vaihtoehto.booleanArvoVastaukselle === false ? (
+          <> 
             <div class="answerlines">
               <div class="answerline">
                 <input type="checkbox" id={vaihtoehto.komponentinId} onClick={() => save(vaihtoehto.komponentinId)}/> {vaihtoehto.vastaus}
               </div>
             </div> 
-        </>
-        ))}
+        </>) 
+        :
+        <> 
+        <div class="answerlines">
+          <div class="answerline">
+            <input type="checkbox" checked id={vaihtoehto.komponentinId} onClick={() => save(vaihtoehto.komponentinId)}/> {vaihtoehto.vastaus}
+          </div>
+        </div> 
+      </>
+        })}
   </>
   );
 }

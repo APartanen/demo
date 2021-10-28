@@ -11,14 +11,13 @@ import Alikomponentti from './Alikomponentti'
 
 const Komponentti = ({ pääkysymys,setPääkysymykset,pääkysymykset})  => {
   const [listaKysymyksiä, setListaKysymyksiä] = useState(pääkysymys)
-  console.log("pääkysymykset",pääkysymykset)
+
   return (
     <Box class="container">
       <div class="box shadow">
         {listaKysymyksiä.map((listaPääkysymyksiä) => (
             <Grid class="textbox"> 
               <h1>{listaPääkysymyksiä.pääkysymys}</h1>
-              {console.log("listaPääkysymyksiä",listaPääkysymyksiä)}<br></br>
               <Alikomponentti vastausVaihtoehdot={listaPääkysymyksiä.vastausVaihtoehdot} listaKysymyksiä={listaKysymyksiä} setPääkysymykset={setPääkysymykset} pääkysymykset={pääkysymykset}/> 
             </Grid>
             ))}
