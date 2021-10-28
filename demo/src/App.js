@@ -10,10 +10,10 @@ let arr2 = [{vastaus: "ei", booleanArvoVastaukselle: false, komponentinId: 3},{v
 let arr3 = [{vastaus: "ei", booleanArvoVastaukselle: false, komponentinId: 6},{vastaus: "kyllä", booleanArvoVastaukselle: false, komponentinId: 7},{vastaus: "ehkä", booleanArvoVastaukselle: false, komponentinId: 8}]
 let arr4 = [{vastaus: "ei", booleanArvoVastaukselle: false, komponentinId: 9},{vastaus: "kyllä", booleanArvoVastaukselle: false, komponentinId: 10},{vastaus: "ehkä", booleanArvoVastaukselle: false, komponentinId: 11}]
 
-let listaPääkysymyksiä1 = [{pääkysymys: "listaPääkysymyksiä1", oikeaVastaus: 1, id: 0, vastausVaihtoehdot:arr1}]
-let listaPääkysymyksiä2 = [{pääkysymys: "listaPääkysymyksiä2", oikeaVastaus: 2, id: 1, vastausVaihtoehdot:arr2}]
-let listaPääkysymyksiä3 = [{pääkysymys: "listaPääkysymyksiä3", oikeaVastaus: 1, id: 2, vastausVaihtoehdot:arr3}]
-let listaPääkysymyksiä4 = [{pääkysymys: "listaPääkysymyksiä4", oikeaVastaus: 2, id: 3, vastausVaihtoehdot:arr4}]
+let listaPääkysymyksiä1 = [{pääkysymys: "Onko JavaScript kivaa?", oikeaVastaus: 1, id: 0, vastausVaihtoehdot:arr1}]
+let listaPääkysymyksiä2 = [{pääkysymys: "Onko React kivaa?", oikeaVastaus: 2, id: 1, vastausVaihtoehdot:arr2}]
+let listaPääkysymyksiä3 = [{pääkysymys: "Onko Reactin hookit vaikeita", oikeaVastaus: 1, id: 2, vastausVaihtoehdot:arr3}]
+let listaPääkysymyksiä4 = [{pääkysymys: "Sirittääkö päässäsi?", oikeaVastaus: 2, id: 3, vastausVaihtoehdot:arr4}]
 
 let kaikki = [listaPääkysymyksiä1,listaPääkysymyksiä2,listaPääkysymyksiä3, listaPääkysymyksiä4]
 
@@ -45,8 +45,6 @@ function App() {
         <Komponentti pääkysymys={setti} setPääkysymykset={setPääkysymykset} pääkysymykset={pääkysymykset}/>
         </>
       ))}
-
-
     </Container>
   );
 }
