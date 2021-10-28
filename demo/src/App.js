@@ -32,6 +32,8 @@ function App() {
   
   useEffect(() => {    
   console.log("aaaa",pääkysymykset)
+  let avain = "localStorageAvain"
+  localStorage.setItem(avain, JSON.stringify(pääkysymykset))
   },[pääkysymykset]); //makes the effect run if changed
 
   console.log("kaikki",kaikki)

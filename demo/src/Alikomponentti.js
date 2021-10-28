@@ -14,31 +14,6 @@ const Alikomponentti = ({ vastausVaihtoehdot, listaKysymyksiä, setPääkysymyks
 
 console.log("pääkysymykset alikomp:", pääkysymykset)
 
-/**  console.log("tämä kuuluu pääkysymys listalle: ", listaKysymyksiä[0].id)
-  console.log("vastausvaihtoehdon id: ",id)
-  //hae id avulla pääkysymys ja sen vastausvaihtoehto
-  //!tila
-  let checkBox = document.getElementById(id);
-  //console.log("checked",checkBox.checked)
-  //console.log("pääkysymykset", pääkysymykset )
-  let index = listaKysymyksiä[0].id
-  console.log("tarkista",listaKysymyksiä)
-  //val on listaPääkysymyksiä tapainen
-  let päälista = pääkysymykset[index]
-  console.log("päälista",päälista)
-  //päälistaObjekti on listaPääkysymyksiä sisällä oleva objekti
-  let päälistaObjekti = päälista[0]
-  console.log("päälistaObjekti",päälistaObjekti)
-
-  let kysymysArray = päälistaObjekti.vastausVaihtoehdot
-  let vastausIndex = id
-  console.log("kysymysArray: ",kysymysArray,"vastausIndex:",vastausIndex, id)
-  console.log("kysymysArray: ",kysymysArray,"vastausIndex:",vastausIndex," vastaus:",kysymysArray[vastausIndex])
-  let vastaus = kysymysArray[vastausIndex]
-  vastaus.booleanArvoVastaukselle = !vastaus.booleanArvoVastaukselle
-  console.log(vastaus) */
-
-
 const save = (id) => {
   console.log("pääkysymykset:",pääkysymykset)
   //vastausVaihtoehdot 0 on aina listan vastausVaihtoehdot ensimmäinen elementti
