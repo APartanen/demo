@@ -20,12 +20,12 @@ function App() {
   const [pääkysymykset, setPääkysymykset] = useState(() => {
     let avain = "localStorageAvain"
     let localStorageData = localStorage.getItem(avain) //hae arvottu numero
-    let bool = false
-    if (localStorageData.length > 1) {
+    let bool = true
+    if (localStorageData === null) {
       bool = true
     }
     //jos boolean arvo on true: palauta localStorageData muuten kaikki
-    return bool ? localStorageData : kaikki
+    return bool ? kaikki : localStorageData
   });
 
   console.log(kaikki)
