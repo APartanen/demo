@@ -9,9 +9,9 @@ import Alikomponentti from './Alikomponentti'
 //let listaPääkysymyksiä3 = [{pääkysymys: "Onko Reactin hookit vaikeita?", id: 3, vastausVaihtoehdot:arr3}]
 //let listaPääkysymyksiä4 = [{pääkysymys: "Joko alkaa päässä sirittää?", id: 4, vastausVaihtoehdot:arr4}]
 
-const Komponentti = ({ pääkysymys,setPääkysymykset})  => {
+const Komponentti = ({ pääkysymys,setPääkysymykset,pääkysymykset})  => {
   const [listaKysymyksiä, setListaKysymyksiä] = useState(pääkysymys)
-  console.log("pää",pääkysymys)
+  console.log("pääkysymykset",pääkysymykset)
   return (
     <Box class="container">
       <div class="box shadow">
@@ -19,7 +19,7 @@ const Komponentti = ({ pääkysymys,setPääkysymykset})  => {
             <Grid class="textbox"> 
               <h1>{listaPääkysymyksiä.pääkysymys}</h1>
               {console.log("listaPääkysymyksiä",listaPääkysymyksiä)}<br></br>
-              <Alikomponentti vastausVaihtoehdot={listaPääkysymyksiä.vastausVaihtoehdot} listaKysymyksiä={listaKysymyksiä} setPääkysymykset={setPääkysymykset}/> 
+              <Alikomponentti vastausVaihtoehdot={listaPääkysymyksiä.vastausVaihtoehdot} listaKysymyksiä={listaKysymyksiä} setPääkysymykset={setPääkysymykset} pääkysymykset={pääkysymykset}/> 
             </Grid>
             ))}
        </div>     
