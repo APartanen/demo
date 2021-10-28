@@ -27,7 +27,6 @@ function App() {
     if (data === null) {
       bool = true
     }
-    console.log("AAAAAAAAAAAAAA",bool,kaikki,data)
     return bool ? kaikki : data
   });
 
